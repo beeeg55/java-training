@@ -1,0 +1,25 @@
+package baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class greedy_10610 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		for(int i=0;i<s.length();i++){
+			if(s.charAt(i)=='0'){
+				System.out.println(s);
+				break;
+			}
+			else{
+				System.out.println("-1");
+				break;
+			}
+		}
+		
+		
+	}
+}

@@ -1,0 +1,33 @@
+package baekjoon;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class greedy_10610 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		int num = Integer.parseInt(s);
+		int[] arr=new int[10];
+		for(int i=0;i<s.length();i++){
+			int temp = s.charAt(i);
+			arr[temp] += 1;
+		}
+		if(arr[0]==0||num%3!=0){
+			System.out.println("-1");
+			return;
+		}
+		else{
+			for(int i=0;i<10;i++){
+				if(arr[i]==1)continue;
+				for(int j=0;j<arr[i];j++){			
+					System.out.print(i);
+				}
+			}
+		}
+		
+		
+	}
+}

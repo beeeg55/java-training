@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;명구꺼/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;자구조2번째과제&apos;&#x0D;&#x0A;- Destination element: &apos;명구꺼/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     LinkedStack.java&#x0D;&#x0A;     Stack.java" description="Copy compilation units" destination="=명구꺼/src&lt;" element1="/src&lt;{LinkedStack.java" element2="/src&lt;{Stack.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1524138692236" units="2" version="1.0"/>
+</session>

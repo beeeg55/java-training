@@ -1,0 +1,22 @@
+package baekjoon;
+
+import java.util.Scanner;
+
+public class factorial {
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		int num = input.nextInt();
+		System.out.println(mux(num));
+	}	
+	public static int mux(int i){
+		if(i>1){
+		return i * mux(i-1);
+		}
+		else{
+			return 1;
+		}
+	}
+}
+	

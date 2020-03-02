@@ -1,0 +1,21 @@
+package baekjoon;
+
+import java.util.Scanner;
+
+public class max {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		int num = in.nextInt();
+		
+		int p = (int)num/2;
+		int q = num/2;
+		while(q>1){
+			if(p%q==0) break;
+			q--;
+		}
+		System.out.println();
+	}
+
+}

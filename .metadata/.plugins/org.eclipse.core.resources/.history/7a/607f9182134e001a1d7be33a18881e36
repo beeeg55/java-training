@@ -1,0 +1,19 @@
+package baekjoon;
+
+import java.util.Scanner;
+
+public class math_1110 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		
+		int oldNum = in.nextInt();
+		int newNum = 0;
+		integerCycle(oldNum,newNum);
+	}
+	public static void integerCycle(int oldNum, int newNum){
+		if(oldnum==newNum)
+	}
+
+}

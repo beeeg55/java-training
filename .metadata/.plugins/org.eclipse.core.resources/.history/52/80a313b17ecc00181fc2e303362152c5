@@ -1,0 +1,124 @@
+import java.io.*;
+import java.net.*;
+import java.util.Random;
+
+public class echo_server {
+	  static int strike =0; //스트라이크 변수 선언
+	  static int ball = 0; //볼 변수 선언
+
+
+	  public static boolean recreate(int num){
+			return (num/100==(num%100)/10||num/100==num%10||(num%100)/10==num%10);
+		}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try{
+			
+			ServerSocket ss= new ServerSocket(2018);
+			Socket s= ss.accept();
+			
+			BufferedReader br= new BufferedReader(new InputStreamReader(s.getInputStream()));
+			BufferedWriter bw= new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
+			
+			String bytes;
+			int answer;
+			
+			while(true){
+				System.out.println("숫자야구 게임을 시작합니다.");
+				System.out.println("랜덤번호 생성");
+				int computer[] = new int[3]; 
+
+				
+				Random random = new Random();
+			     
+			    while(computer[0] == 0){
+			      computer[0] = random.nextInt(10);
+			    }
+			     
+			    while(computer[0] == computer[1] || computer[1] == 0){
+			      computer[1] = random.nextInt(10);
+			    }
+			     
+			    while(computer[0] == computer[2] || computer[1] == computer[2] || computer[2] == 0){
+			      computer[2] = random.nextInt(10);
+			    }
+			     
+			    if(recreate(computer[0]+computer[1]+computer[2])){
+					System.out.println("랜덤 번호 재생성");
+				}
+				else{
+			    System.out.println("생성된번호"+computer[0]+computer[1]+computer[2]);
+			    String recv;
+			    int num;
+				recv = br.readLine();
+				System.out.println(recv);
+				num=Integer.parseInt(recv);
+				if(num>998||num<12){
+					bw.write("결과: 범위 값을 넘었습니다.");
+					bw.newLine();
+					bw.flush();
+				}
+				else{
+				System.out.println("전달받은 번호:"+recv);
+			
+				
+				for(int i = 0; i< 3; i++){
+			          if(computer[i] ==num/100 ){
+			           
+			            if(i==num/100){
+			              strike+=1;
+			            }else{  
+			              ball+=1;
+			            }
+			          
+			        }
+			      }
+				
+				for(int i = 0; i< 3; i++){
+			          if(computer[i] ==(num%100)/10 ){
+			           
+			            if(i==(num%100)/10 ){
+			              strike+=1;
+			            }else{  
+			              ball+=1;
+			            }
+			          
+			        }
+			      }
+				for(int i = 0; i< 3; i++){
+			          if(computer[i] == num%10){
+			           
+			            if(i==num%10){
+			              strike+=1;
+			            }else{  
+			              ball+=1;
+			            }
+			          
+			        }
+			      }
+				
+			       
+			      //만약 strike, ball 아무도 못맞췄다면
+			      if(strike == 0 && ball==0){
+			        System.out.println("\n아웃!!\n");
+			      }else if(strike == 3){ //만약 스트라이크 3개라면
+			        System.out.print("\n스트라이크!!");
+			        System.out.println("게임을 종료합니다.");
+			        System.exit(0); //무한루프 탈출하여 종료!
+			      }else{
+			        System.out.println("\n"+strike+" 스트라이크"+ball+" 볼\n");
+			        strike=0;
+			        ball=0;
+			      }
+				}
+				bw.write("새로운 게임을 시작합니다.");
+				bw.newLine();
+				bw.flush();
+			}
+			}
+		}catch(IOException e){
+			System.out.println(e);
+		}
+	}
+
+}

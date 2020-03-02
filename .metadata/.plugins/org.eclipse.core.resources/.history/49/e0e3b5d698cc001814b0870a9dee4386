@@ -1,0 +1,37 @@
+
+import java.io.*;
+import java.net.*;
+
+public class echo_client {
+public static void main(String[] args) {
+try{
+String host = "localhost";
+int port = 2018;
+
+Socket s = new Socket(host,port);
+
+BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
+
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+String sndMsg, rcvMsg;
+
+while(true){
+System.out.println("숫자입력 : ");
+sndMsg = in.readLine();
+
+bw.write(sndMsg);
+bw.newLine();
+bw.flush();
+
+rcvMsg = br.readLine();
+
+System.out.println(rcvMsg);
+}
+} catch(IOException e){
+System.out.println(e);
+}
+}
+
+}
